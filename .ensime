@@ -1,0 +1,24 @@
+(
+ :root-dir "/Users/cyberglot/workspace/chiusano"
+ :cache-dir "/Users/cyberglot/workspace/chiusano/.ensime_cache"
+ :name "chiusano"
+ :java-home "/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home"
+ :java-flags ("-Xms1024m" "-Xmx1024m" "-XX:ReservedCodeCacheSize=128m" "-XX:MaxMetaspaceSize=256m")
+ :reference-source-roots ("/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/src.zip")
+ :scala-version "2.10.4"
+ :compiler-args nil
+ 
+ :subprojects ((
+   :name "chiusano"
+   :module-name "chiusano"
+   :source-roots ("/Users/cyberglot/workspace/chiusano/src/test/scala-2.10" "/Users/cyberglot/workspace/chiusano/src/main/java" "/Users/cyberglot/workspace/chiusano/src/main/scala" "/Users/cyberglot/workspace/chiusano/src/test/scala" "/Users/cyberglot/workspace/chiusano/src/main/scala-2.10" "/Users/cyberglot/workspace/chiusano/src/test/java")
+   :target "/Users/cyberglot/workspace/chiusano/target/scala-2.10/classes"
+   :test-targets ("/Users/cyberglot/workspace/chiusano/target/scala-2.10/test-classes")
+   :depends-on-modules nil
+   :compile-deps ("/Users/cyberglot/.sbt/boot/scala-2.10.4/lib/scala-library.jar")
+   :runtime-deps nil
+   :test-deps nil
+   :doc-jars ("/Users/cyberglot/workspace/chiusano/target/scala-2.10/chiusano_2.10-0.1-SNAPSHOT-javadoc.jar")
+   :reference-source-roots nil))
+ 
+)
