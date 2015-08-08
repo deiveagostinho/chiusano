@@ -81,6 +81,24 @@ object Option {
   def bothMatch(pat1: String, pat2: String, s: String): Option[Boolean] =
     map2(mkMatcher(pat1), mkMatcher(pat2), (f, g) => f(s) && g(s))
 
-  def sequence[A](a: List[Option[A]]): Option[List[A]] = ???
-  def traverse[A, B](a: List[A])(f: A => Option[B]): Option[List[B]] = ???
+  def sequence[A](l: List[Option[A]]): Option[List[A]] =
+    l match {
+      case Nil => None
+      case h :: t => h flatMap (hh => sequence(t) map (hh :: _))
+    }
+
+  def sequence2[A](as: List[Option[A]]): Option[List[A]] =
+    as.foldRight[Option[List[A]]](Some[Nil])((x, y) => map2(x, y)(_ :: _))
+
+  def traverse[A, B](as: List[A])(f: A => Option[B]): Option[List[B]] =
+    as match {
+      case Nil => None
+      case h :: t => map2(f(h), traverse(t)(f))(_ :: _)
+    }
+
+  def traverse2[A, B](as: List[A])(f: A => Option[B]): Option[List[B]] =
+    as.foldRight[Optionp[List[B]]](Some(Nil))((x, y) => map2(f(x), y)(_ :: _))
+
+  def sequence3[A, B](as: List[A]): Option[List[A]] =
+    traverse(a)(x => x)
 }
